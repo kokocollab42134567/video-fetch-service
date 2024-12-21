@@ -15,8 +15,9 @@ app.get('/getVideo', async (req, res) => {
     try {
         const browser = await puppeteer.launch({
             headless: true,
+            executablePath: '/usr/bin/chromium-browser', // Use Render's Chromium
             args: ['--no-sandbox', '--disable-setuid-sandbox'],
-        });        
+        });
         const page = await browser.newPage();
 
         // Open the provided URL
